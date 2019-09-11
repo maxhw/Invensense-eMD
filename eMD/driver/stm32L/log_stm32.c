@@ -16,7 +16,7 @@
  *  @{
  *      @file   log_msp430.c
  *      @brief  Logging facility for the TI MSP430.
- */
+*/
 
 #include <stdio.h>
 #include <stdint.h>
@@ -109,8 +109,8 @@ int _MLPrintLog (int priority, const char* tag, const char* fmt, ...)
           fputc(out[i]);
         }
     }
-    
-            
+
+
     va_end(args);
 
     return 0;
@@ -143,7 +143,7 @@ void eMPL_send_quat(long *quat)
     out[18] = (char)quat[3];
     out[21] = '\r';
     out[22] = '\n';
-    
+
     for (i=0; i<PACKET_LENGTH; i++) {
       fputc(out[i]);
     }

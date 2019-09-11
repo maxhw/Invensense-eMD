@@ -58,7 +58,7 @@ int inv_get_sensor_type_accel(long *data, int8_t *accuracy, inv_time_t *timestam
  *  @param[out] accuracy    Accuracy of the measurement from 0 (least accurate)
  *                          to 3 (most accurate).
  *  @param[out] timestamp   The time in milliseconds when this sensor was read.
- *  @return     1 if data was updated. 
+ *  @return     1 if data was updated.
  */
 int inv_get_sensor_type_gyro(long *data, int8_t *accuracy, inv_time_t *timestamp)
 {
@@ -75,7 +75,7 @@ int inv_get_sensor_type_gyro(long *data, int8_t *accuracy, inv_time_t *timestamp
  *  @param[out] accuracy    Accuracy of the measurement from 0 (least accurate)
  *                          to 3 (most accurate).
  *  @param[out] timestamp   The time in milliseconds when this sensor was read.
- *  @return     1 if data was updated. 
+ *  @return     1 if data was updated.
  */
 int inv_get_sensor_type_compass(long *data, int8_t *accuracy, inv_time_t *timestamp)
 {
@@ -93,7 +93,7 @@ int inv_get_sensor_type_compass(long *data, int8_t *accuracy, inv_time_t *timest
  *  @param[out] accuracy    Accuracy of the measurement from 0 (least accurate)
  *                          to 3 (most accurate).
  *  @param[out] timestamp   The time in milliseconds when this sensor was read.
- *  @return     1 if data was updated. 
+ *  @return     1 if data was updated.
  */
 int inv_get_sensor_type_quat(long *data, int8_t *accuracy, inv_time_t *timestamp)
 {
@@ -109,7 +109,7 @@ int inv_get_sensor_type_quat(long *data, int8_t *accuracy, inv_time_t *timestamp
  *  @param[out] accuracy    Accuracy of the measurement from 0 (least accurate)
  *                          to 3 (most accurate).
  *  @param[out] timestamp   The time in milliseconds when this sensor was read.
- *  @return     1 if data was updated. 
+ *  @return     1 if data was updated.
  */
 int inv_get_sensor_type_heading(long *data, int8_t *accuracy, inv_time_t *timestamp)
 {
@@ -236,7 +236,7 @@ static inv_error_t inv_generate_eMPL_outputs
     eMPL_out.gyro_status = sensor_cal->gyro.status;
     eMPL_out.accel_status = sensor_cal->accel.status;
     eMPL_out.compass_status = sensor_cal->compass.status;
-    
+
     /* Find the highest sample rate and tie sensor fusion timestamps to that one. */
     if (sensor_cal->gyro.status & INV_SENSOR_ON) {
         sr = sensor_cal->gyro.sample_rate_ms;
@@ -274,8 +274,8 @@ static inv_error_t inv_generate_eMPL_outputs
         eMPL_out.nine_axis_timestamp = sensor_cal->quat.timestamp;
         break;
     }
-    
-    
+
+
     return INV_SUCCESS;
 }
 

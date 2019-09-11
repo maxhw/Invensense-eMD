@@ -15,7 +15,7 @@ extern "C" {
 
 inv_error_t inv_register_load_store(
                            inv_error_t (*load_func)(const unsigned char *data),
-                           inv_error_t (*save_func)(unsigned char *data), 
+                           inv_error_t (*save_func)(unsigned char *data),
                            size_t size, unsigned int key);
 void inv_init_storage_manager(void);
 

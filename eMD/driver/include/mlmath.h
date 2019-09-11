@@ -5,8 +5,8 @@
  */
 /*******************************************************************************
  *
- * $Id: mlmath.h 5629 2011-06-11 03:13:08Z mcaramello $ 
- * 
+ * $Id: mlmath.h 5629 2011-06-11 03:13:08Z mcaramello $
+ *
  *******************************************************************************/
 
 #ifndef _ML_MATH_H_
@@ -25,7 +25,7 @@
 
 #else  // MLMATH
 
-#ifdef __cplusplus 
+#ifdef __cplusplus
 extern "C" {
 #endif
 /* MPL needs below functions */
@@ -44,7 +44,7 @@ double  ml_acos(double);
 #endif
 
 /*
- * We rename functions here to provide the hook for other 
+ * We rename functions here to provide the hook for other
  * customized math functions.
  */
 #define	sqrt(x)      ml_sqrt(x)

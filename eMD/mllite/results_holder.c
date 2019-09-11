@@ -268,7 +268,7 @@ void inv_get_quaternion_set(long *data, int *accuracy, inv_time_t *timestamp)
     }
 }
 
-/** Callback that gets called everytime there is new data. It is 
+/** Callback that gets called everytime there is new data. It is
  * registered by inv_start_results_holder().
  * @param[in] sensor_cal New sensor data to process.
  * @return Returns INV_SUCCESS if successful or an error code if not.
@@ -332,7 +332,7 @@ int inv_got_accel_bias()
 }
 
 /** Sets whether we know the accel bias
- * @param[in] state Set to 1 if we know the accel bias. 
+ * @param[in] state Set to 1 if we know the accel bias.
  *            Can be retrieved with inv_got_accel_bias()
  */
 void inv_set_accel_bias_found(int state)
@@ -350,7 +350,7 @@ int inv_got_compass_bias()
 }
 
 /** Sets whether we know the compass bias
- * @param[in] state Set to 1 if we know the compass bias. 
+ * @param[in] state Set to 1 if we know the compass bias.
  *            Can be retrieved with inv_got_compass_bias()
  */
 void inv_set_compass_bias_found(int state)
@@ -375,7 +375,7 @@ int inv_get_compass_state()
 }
 
 /** Set compass bias error. See inv_get_compass_bias_error()
- * @param[in] bias_error Set's how accurate we know the compass bias. It is the 
+ * @param[in] bias_error Set's how accurate we know the compass bias. It is the
  * error squared.
  */
 void inv_set_compass_bias_error(const long *bias_error)

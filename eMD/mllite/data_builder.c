@@ -4,7 +4,7 @@
     See included License.txt for License information.
  $
  */
- 
+
 /**
  *   @defgroup  Data_Builder data_builder
  *   @brief     Motion Library - Data Builder
@@ -613,19 +613,19 @@ void inv_get_accel_bias(long *bias, long *temp)
         temp[0] = inv_data_builder.save.accel_temp;
 }
 
-/** 
+/**
  *  Record new accel data for use when inv_execute_on_data() is called
- *  @param[in]  accel accel data. 
- *              Length 3. 
- *              Calibrated data is in m/s^2 scaled by 2^16 in body frame. 
+ *  @param[in]  accel accel data.
+ *              Length 3.
+ *              Calibrated data is in m/s^2 scaled by 2^16 in body frame.
  *              Raw data is in device units in chip mounting frame.
- *  @param[in]  status 
- *              Lower 2 bits are the accuracy, with 0 being inaccurate, and 3 
+ *  @param[in]  status
+ *              Lower 2 bits are the accuracy, with 0 being inaccurate, and 3
  *              being most accurate.
- *              The upper bit INV_CALIBRATED, is set if the data was calibrated 
- *              outside MPL and it is not set if the data being passed is raw. 
+ *              The upper bit INV_CALIBRATED, is set if the data was calibrated
+ *              outside MPL and it is not set if the data being passed is raw.
  *              Raw data should be in device units, typically in a 16-bit range.
- *  @param[in]  timestamp 
+ *  @param[in]  timestamp
  *              Monotonic time stamp, for Android it's in nanoseconds.
  *  @return     Returns INV_SUCCESS if successful or an error code if not.
  */
@@ -760,8 +760,8 @@ inv_error_t inv_build_temp(const long temp, inv_time_t timestamp)
     return INV_SUCCESS;
 }
 /** quaternion data
-* @param[in] quat Quaternion data. 2^30 = 1.0 or 2^14=1 for 16-bit data. 
-*                 Real part first. Length 4.  
+* @param[in] quat Quaternion data. 2^30 = 1.0 or 2^14=1 for 16-bit data.
+*                 Real part first. Length 4.
 * @param[in] status number of axis, 16-bit or 32-bit
 * @param[in] timestamp
 * @param[in]  timestamp   Monotonic time stamp; for Android it's in
@@ -779,7 +779,7 @@ inv_error_t inv_build_quat(const long *quat, int status, inv_time_t timestamp)
         fwrite(&timestamp, sizeof(timestamp), 1, inv_data_builder.file);
     }
 #endif
-    
+
     memcpy(sensors.quat.raw, quat, sizeof(sensors.quat.raw));
     sensors.quat.timestamp = timestamp;
     sensors.quat.status |= INV_NEW_DATA | INV_RAW_DATA | INV_SENSOR_ON;
