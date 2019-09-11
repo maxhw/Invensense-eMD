@@ -123,7 +123,7 @@ extern int inv_i2c_read(uint8_t slave_addr, uint8_t reg_addr,
                         uint8_t length, uint8_t *data);
 
 extern void inv_delay_ms(uint32_t num_ms);
-extern void inv_get_ms(uint32_t *count);
+extern void inv_get_ms(unsigned long *count);
 
 #define i2c_write   inv_i2c_write
 #define i2c_read    inv_i2c_read
@@ -2324,7 +2324,7 @@ static int accel_6500_self_test(long *bias_regular, long *bias_st, int debug)
 		if(debug)
 			log_i("Accel:CRITERIA C: bias less than %7.4f\n", accel_offset_max/1.f);
 		for (i = 0; i < 3; i++) {
-			if(fabs(bias_regular[i]) > accel_offset_max) {
+			if(labs(bias_regular[i]) > accel_offset_max) {
 				if(debug)
 					log_i("FAILED: Accel axis:%d = %ld > 500mg\n", i, bias_regular[i]);
 				result |= 1 << i;	//Error condition
@@ -2418,7 +2418,7 @@ static int gyro_6500_self_test(long *bias_regular, long *bias_st, int debug)
 		if(debug)
 			log_i("Gyro:CRITERIA C: bias less than %7.4f\n", gyro_offset_max/1.f);
 		for (i = 0; i < 3; i++) {
-			if(fabs(bias_regular[i]) > gyro_offset_max) {
+			if(labs(bias_regular[i]) > gyro_offset_max) {
 				if(debug)
 					log_i("FAILED: Gyro axis:%d = %ld > 20dps\n", i, bias_regular[i]);
 				result |= 1 << i;	//Error condition

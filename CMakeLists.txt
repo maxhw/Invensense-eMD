@@ -1,0 +1,11 @@
+PROJECT (eMD)
+
+CMAKE_MINIMUM_REQUIRED (VERSION 3.5.1)
+
+# ROOT DIRECTORY
+SET (RootDirPath ${CMAKE_SOURCE_DIR})
+
+INCLUDE (${RootDirPath}/make/modules.cmake)
+
+ADD_SUBDIRECTORY(target/Linux-gnu)
+

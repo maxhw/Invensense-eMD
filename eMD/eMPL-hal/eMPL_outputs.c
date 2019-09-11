@@ -21,6 +21,8 @@
 #include "data_builder.h"
 #include "results_holder.h"
 
+#include "string.h"
+
 struct eMPL_output_s {
     long quat[4];
     int quat_accuracy;
@@ -97,7 +99,7 @@ int inv_get_sensor_type_compass(long *data, int8_t *accuracy, inv_time_t *timest
  */
 int inv_get_sensor_type_quat(long *data, int8_t *accuracy, inv_time_t *timestamp)
 {
-    memcpy(data, eMPL_out.quat, sizeof(eMPL_out.quat));
+    memcpy((void *)data, (void *)eMPL_out.quat, sizeof(eMPL_out.quat));
     accuracy[0] = eMPL_out.quat_accuracy;
     timestamp[0] = eMPL_out.nine_axis_timestamp;
     return eMPL_out.nine_axis_status;
@@ -275,7 +277,6 @@ static inv_error_t inv_generate_eMPL_outputs
         break;
     }
 
-
     return INV_SUCCESS;
 }
 
@@ -292,7 +293,7 @@ static inv_error_t inv_stop_eMPL_outputs(void)
 
 static inv_error_t inv_init_eMPL_outputs(void)
 {
-    memset(&eMPL_out, 0, sizeof(eMPL_out));
+    memset((void *)&eMPL_out, 0, sizeof(eMPL_out));
     return INV_SUCCESS;
 }
 
