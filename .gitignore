@@ -7,3 +7,6 @@ example/**/.lbuild_cache
 example/**/Makefile
 example/**/CMakelists.txt
 .sconsign.dblite
+
+# macOS file
+.DS_Store
