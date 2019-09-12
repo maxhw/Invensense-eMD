@@ -14,6 +14,7 @@ INCLUDE_DIRECTORIES (${ProjDirPath})
 INCLUDE_DIRECTORIES (${RootDirPath}/app)
 
 # eMD
+INCLUDE_DIRECTORIES (${RootDirPath}/eMD)
 INCLUDE_DIRECTORIES (${RootDirPath}/eMD/driver/include)
 INCLUDE_DIRECTORIES (${RootDirPath}/eMD/driver/stm32L)
 INCLUDE_DIRECTORIES (${RootDirPath}/eMD/eMPL-hal)
@@ -21,9 +22,11 @@ INCLUDE_DIRECTORIES (${RootDirPath}/eMD/mllite)
 INCLUDE_DIRECTORIES (${RootDirPath}/eMD/mpl)
 
 SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu99")
+#SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__KERNEL__")
 SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DMPU9250")
 
 SET (CMAKE_C++_FLAGS "${CMAKE_C++_FLAGS} -std=gnu99")
+#SET (CMAKE_C++_FLAGS "${CMAKE_C++_FLAGS} -D__KERNEL__")
 SET (CMAKE_C++_FLAGS "${CMAKE_C++_FLAGS} -DMPU9250")
 
 # Add executable file
